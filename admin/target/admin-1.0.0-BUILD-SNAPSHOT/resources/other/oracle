@@ -1,0 +1,378 @@
+use testsdb;
+create user 'test2'@'%' identified by 'test1234' ;
+grant all privileges on testdb.* to 'test2'@'%';
+flush privileges;
+mysql8
+
+오라클
+
+https://www.oracle.com/kr/database/technologies/
+오라클 DB 다운운 Oracle Database 19c 다운로드
+Oracle Database Express Edition (XE) Release 11.2.0.2.0 (11gR2).
+https://www.oracle.com/database/technologies/xe-prior-release-downloads.html
+
+설치시 비밀번호 설정 간단하게
+
+그후 확인 방법은 cmd에서
+
+
+[ cmd ]
+
+(1)관리자 모드로 접속
+sqlplus sys/1234 as sysdba   (enter)
+
+- 일반계정 생성
+SQL> CREATE USER scott IDENTIFIED by 1234;
+- 권한 부여
+SQL> GRANT connect, resource, dba to scott;
+     GRANT CONNECT, RESOURCE, DBA TO scott;
+CONNECT - 접속권한
+RESOURCE - 객체(생성,수정,삭제), 데이터(입력,수정,조회,삭제) 권한
+DBA - 최고의 권한으로 모든 사용자 데이터에 접근가능
+(2)  생성된 계정으로 접속
+sqlplus scott/1234    (enter)
+
+SQL> CREATE TABLE test1(
+    2 userid varchar2(20) );
+
+SQL> DESC test1;
+SQL> exit; //접속 종료
+
+오라클 관리 프로그램 SQL DEVELOPER or toad
+SQL Developer 20.4.1 Downloads
+https://www.oracle.com/tools/downloads/sqldev-downloads-2041.html
+
+설치후 name 아무거나
+세부정보 중요: 호스트이름, 포트번호, SID
+확인 방법 :
+C:\oraclexe\app\oracle\product\11.2.0\server\network\ADMIN\tnsnames.ora
+ex )
+                            // (HOST = pc15) 시스템이름 하지만 웬만하면 주소
+XE =                        //닉네임 & SID
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = 127.0.0.1)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = XE)   // 스키마 & 디비 네임
+    )
+  )
+
+EXTPROC_CONNECTION_DATA =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = IPC)(KEY = EXTPROC1))
+    )
+    (CONNECT_DATA =
+      (SID = PLSExtProc)
+      (PRESENTATION = RO)
+    )
+  )
+
+ORACLR_CONNECTION_DATA =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = IPC)(KEY = EXTPROC1))
+    )
+    (CONNECT_DATA =
+      (SID = CLRExtProc)
+      (PRESENTATION = RO)
+    )
+  )
+
+MySQL 트랜젝션 무의미 (자동커밋)
+오라클 트랜젝션 유의미 (수동커밋)
+
+커밋은 영구(실제) 저장(기록) 커밋 시점 전으로 롤백이 불가능
+
+CREATE TABLE DEPT
+(
+    DEPTNO NUMBER(2),  -- 부서번호  mysql : int(2)
+    DNAME VARCHAR2(14),  -- 부서이름
+    LOC VARCHAR2(13)  -- 부서위치
+);
+
+INSERT INTO DEPT
+VALUES(10, 'ACCOUNTING', 'NEW YORK');
+INSERT INTO DEPT
+VALUES(20, 'RESERCH', 'DALLAS');
+INSERT INTO DEPT
+VALUES(30, 'SALES', 'CHICAGO');
+INSERT INTO DEPT
+VALUES(40, 'ORERATIONS', 'BOSTON');
+
+
+SELECT * FROM DEPT;
+
+CREATE TABLE EMP
+(
+    EMPNO NUMBER(4)         --사원번호    mysql : int(4)
+    , ENAME VARCHAR2(10)    --사원이름    mysql : VARCHAR
+    , JOB VARCHAR2(9)       --업무
+    , MGR NUMBER(4)         --매니저
+    , HREDATE DATE         --입사일
+    , SAL NUMBER(7,2)         --급여      mysql : float(7,2)
+    , COMM NUMBER(7,2)         --추가급여
+    , DEPTNO NUMBER(2)         --부서번호
+);
+
+--INSERT INTO EMP VALUES();
+INSERT INTO EMP VALUES(7839, 'KING', 'PRISIDENT', null, to_date('1996-11-17','yyyy-mm-dd'), 5000, null, 10);
+INSERT INTO EMP VALUES(7698, 'BLAKE', 'MANAGER', 7839, to_date('1991-1-05','yyyy-mm-dd'), 2850, null, 30);
+INSERT INTO EMP VALUES(7782, 'CLARK', 'MANAGER', 7839, to_date('1999-9-06','yyyy-mm-dd'), 2450, null, 10);
+INSERT INTO EMP VALUES(7566, 'JONES', 'MANAGER', 7839, to_date('2001-02-04','yyyy-mm-dd'), 2975, null, 20);
+INSERT INTO EMP VALUES(7788, 'SCOTT', 'ANALYST', 7566, to_date('2003-06-17','yyyy-mm-dd'), 3000, null, 20);
+INSERT INTO EMP VALUES(7902, 'FORD', 'ANALYST', 7566, to_date('1981-03-12','yyyy-mm-dd'), 3000, null, 20);
+INSERT INTO EMP VALUES(7369, 'SMITH', 'CLERK', 7902, to_date('2007-12-1','yyyy-mm-dd'), 800, null, 20);
+INSERT INTO EMP VALUES(7499, 'ALLEN', 'SALESMAN', 7698, to_date('20-2-1981','dd-mm-yyyy'), 1600, 300, 30);
+INSERT INTO EMP VALUES(7521, 'WARD', 'SALESMAN', 7698, to_date('22-2-1981','dd-mm-yyyy'), 1250, 500, 30);
+INSERT INTO EMP VALUES(7654, 'MARTIN', 'SALESMAN', 7698, to_date('28-9-1981','dd-mm-yyyy'), 1250, 1400, 30);
+INSERT INTO EMP VALUES(7844, 'TURNER', 'SALESMAN', 7698, to_date('8-9-1981','mm-dd-yyyy'), 1500, 0, 30);
+INSERT INTO EMP VALUES(7876, 'ADAMS', 'CLERK', 7788, to_date('13-7-87','dd-mm-yy'), 1100, null, 20);
+INSERT INTO EMP VALUES(7900, 'JAMES', 'CLERK', 7698, to_date('3-12-1981','mm-dd-yyyy'), 950, null, 30);
+INSERT INTO EMP VALUES(7934, 'MILLER', 'CLERK', 7788, to_date('2003-1-23','yyyy-mm-dd'), 1300, null, 10);
+INSERT INTO EMP VALUES(1111, 'TEST', 'TESTER', NULL, to_date('1987-7-10','yyyy-mm-dd'), 5000, null, 20);
+
+
+CREATE TABLE SALGRADE(
+    GRADE NUMBER    --등급
+    , LOSAL NUMBER  --최저급여
+    , HISAL NUMBER  --최고급여
+);
+
+INSERT INTO SALGRADE VALUES(1, 700, 1200);
+INSERT INTO SALGRADE VALUES(2, 1201, 1400);
+INSERT INTO SALGRADE VALUES(3, 1401, 2000);
+INSERT INTO SALGRADE VALUES(4, 2001, 3000);
+INSERT INTO SALGRADE VALUES(5, 3001, 9999);
+
+DELETE FROM EMP WHERE EMPNO = '1111';
+SELECT * FROM DEPT;
+SELECT * FROM EMP;
+SELECT * FROM SALGRADE;
+
+DESC emp;
+SELECT EMPNO, ENAME, HIREDATE FROM EMP;
+
+오라클만의 기능 ROWNUM
+ex) 쿼리내에서 사용하는 가상컬럼, 행번호 컬럼
+SELECT ROWNUM, EMPNO, ENAME, HIREDATE FROM EMP;
+
+-- 최고 최저 급여 출력하기
+SELECT MAX(SAL) FROM EMP;
+SELECT MIN(SAL) FROM EMP;
+
+--급여합계 평균 출력하기
+SELECT SUM(SAL) FROM EMP;
+SELECT AVG(SAL) FROM EMP;
+
+--반농림을 출력 평균
+SELECT ROUND(AVG(SAL)) FROM EMP; -- 정수형으로 출력
+SELECT ROUND(AVG(SAL),2) FROM EMP; --소수 둘째짜리까지 출력 나머지는 반올림
+
+--올림함수 내림함수 적용하여 출력
+SELECT CEIL(AVG(SAL)) FROM EMP; -- 올림
+SELECT FLOOR(AVG(SAL)) FROM EMP; -- 내림
+
+--커미션필드 데이터들을 이용하여 합계의 평균을 출력한다.
+SELECT SUM(COMM) FROM EMP; -- NULL값을 제외한 합계 (NULL값을 제외하여)
+SELECT AVG(COMM) FROM EMP; -- NULL값을 제외한 평균 (NULL값을 제외하여)
+
+-- 전체사원수 출력하기
+SELECT COUNT(*) AS TOTAL FROM EMP;      -- AS 생략가능
+SELECT COUNT(*) TOTAL FROM EMP;
+
+-- 업무 종류 출력하기(중복제거)
+SELECT DISTINCT(JOB) FROM EMP;
+
+--풀어보기
+-- 1. 10번부서에 근무하는 직원들 중 최고 급여를출력한다.
+SELECT MAX(SAL) FROM EMP WHERE DEPTNO = '10';
+SELECT * FROM EMP WHERE DEPTNO = '10' AND SAL = (SELECT MAX(SAL) FROM EMP WHERE DEPTNO = '10');
+SELECT * FROM EMP WHERE DEPTNO = '20' AND SAL = (SELECT MAX(SAL) FROM EMP WHERE DEPTNO = '20');
+SELECT * FROM EMP WHERE DEPTNO = '30' AND SAL = (SELECT MAX(SAL) FROM EMP WHERE DEPTNO = '30');
+-- 2. 급여기준 1000 ~ 2000 사이의 데이터를 출력한다.
+SELECT * FROM EMP WHERE SAL >= 1000 AND SAL <= 2000;
+SELECT * FROM EMP WHERE SAL BETWEEN 1000 AND 2000;
+-- 3. 부서번호로 10번과 20번에 해당하는 데이터를 출력한다.
+SELECT * FROM EMP WHERE DEPTNO = '10' OR DEPTNO = '20';
+-- 4. 사원번호 7566이 매니저로서 관리하고 있는 사원은 몇명인가?
+SELECT * FROM EMP WHERE EMPNO = '7566';
+SELECT * FROM EMP WHERE MGR = '7566';
+SELECT COUNT(*) AS 존이관리하고있는인원 FROM EMP WHERE MGR = '7566';
+-- 5. ANALYST로 일하는 사원의 수는 몇명인가?
+SELECT COUNT(*) 사원수 FROM EMP WHERE JOB = 'ANALYST';
+SELECT COUNT(*) 사원수 FROM EMP WHERE JOB = UPPER('analyst');  --대문자
+SELECT COUNT(*) 사원수 FROM EMP WHERE JOB = LOWER('ANALYST');  --소문자
+SELECT ENAME || ',' || JOB 사원별업무 FROM EMP WHERE JOB = 'ANALYST';
+SELECT LOWER(ENAME) || ',' || JOB 사원별업무 FROM EMP WHERE JOB = 'ANALYST';
+SELECT UPPER(ENAME) || ',' || JOB 사원별업무 FROM EMP WHERE JOB = 'ANALYST';
+*오라클은 필드 데이터 대소문자 구별. MYSQL X
+
+
+--연결연산자 ( || ) - 파이프 2개
+SELECT ENAME || JOB 사원별업무 FROM EMP;
+SELECT ENAME || ',' || JOB 사원별업무 FROM EMP;
+SELECT ENAME || ',' || JOB 사원별업무 FROM EMP WHERE JOB = 'ANALYST';
+--MYSQL경우 SELECT CONCAT(ENAME,',',JOB) FROM EMP;
+
+--[2] IN 함수
+-- 1. 부서번호가 10 또는 20으로 되어있는 사원명, 부서번호 출력
+--  A.일반 조건
+SELECT ENAME, DEPTNO FROM EMP WHERE DEPTNO = '10' OR DEPTNO = '20';
+--  B. IN()함수사용
+SELECT ENAME, DEPTNO FROM EMP WHERE DEPTNO IN(10,20);
+--(풀기) 사원명, 급여, 부서번호 출력(사원이름이 ADAMS 또는 FORD)
+SELECT ENAME, SAL, DEPTNO FROM EMP WHERE ENAME IN('ADAMS','FORD');
+
+--[3] BETWEEN 연산자
+-- 1. 부서번호가 10과 20사이에 되어있는 사원명, 부서번호 출력
+--  A.일반 조건
+SELECT ENAME, DEPTNO FROM EMP WHERE DEPTNO >= 10 AND DEPTNO <= 20;
+--  B. BETWEEN 연산자 사용
+SELECT ENAME, DEPTNO FROM EMP WHERE DEPTNO BETWEEN 10 AND 20;
+--(풀기) 사원명, 급여, 부서번호 출력(조건 : 급여 1000~1500)
+SELECT ENAME, SAL, DEPTNO FROM EMP WHERE SAL BETWEEN 1000 AND 1500;
+
+
+--*날짜 관련 함수 및 기능*
+--[1] SYSDATE, SYSTIMESTAMP
+--SYSDATE는 가상컬럼으로 현재 날짜의 정보를 담고있다.
+-- 1. 오늘의 날짜를 출력한다.
+SELECT SYSDATE FROM DUAL;
+-- 2. 오늘의 날짜 및 시분초등를 출력한다.
+SELECT SYSTIMESTAMP FROM DUAL;
+--35일후 날짜 출력
+SELECT SYSDATE+35 FROM DUAL;
+--27일전 날짜 출력
+SELECT SYSDATE-27 FROM DUAL;
+--사원테이블에서 사원명 입사일 입사일 +3 출력
+SELECT ENAME, HIREDATE, HIREDATE+3 입사3일후 FROM EMP;
+--사원명SMITH 입사일 입사일+10 출력
+SELECT ENAME, HIREDATE, HIREDATE+10 입사10일후 FROM EMP WHERE ENAME = 'SMITH';
+--ADD_MONTHS()함수
+--월단위 증가,감소
+SELECT ENAME, HIREDATE, ADD_MONTHS(HIREDATE,2) 입사2달후 FROM EMP WHERE ENAME = 'SMITH';
+SELECT ENAME, HIREDATE, ADD_MONTHS(HIREDATE,-1) 입사1달전 FROM EMP WHERE ENAME = 'SMITH';
+--MONTHS_BETWEEN()함수
+--월단위의 차이를 반환한다
+SELECT ENAME, HIREDATE, ROUND(MONTHS_BETWEEN(SYSDATE,HIREDATE)) 현재입사몇달후 FROM EMP WHERE ENAME = 'SMITH';
+--LAST_DAY()함수
+--마지막 날짜를 반환한다
+SELECT LAST_DAY(SYSDATE) FROM DUAL;
+SELECT ENAME, HIREDATE FROM EMP WHERE ROWNUM < 5;
+SELECT ENAME, LAST_DAY(HIREDATE) FROM EMP WHERE ROWNUM < 5;
+--TO_CHAR()함수
+--날짜타입 -> 문자타입
+--TO_CHAR(날짜,출력폼)
+--오늘의 년도(월,일)만 출력
+SELECT TO_CHAR(SYSDATE, 'yyyy') FROM DUAL;
+SELECT TO_CHAR(SYSDATE, 'mm') FROM DUAL;
+SELECT TO_CHAR(SYSDATE, 'dd') FROM DUAL;
+--오늘의 년월일을 폼을 갖추어 출력한다
+SELECT TO_CHAR(SYSDATE, 'yyyy-mm-dd') FROM DUAL;
+SELECT TO_CHAR(SYSDATE, 'yyyy.mm.dd') FROM DUAL;
+SELECT TO_CHAR(SYSDATE, 'yyyy/mm/dd') FROM DUAL;
+--오늘의 년월일 시분초를 폼을 갖추어 출력한다
+SELECT TO_CHAR(SYSDATE, 'yyyy-mm-dd am hh:mi:ss') FROM DUAL;
+--오늘의 년월일 요일를 폼을 갖추어 출력한다
+SELECT TO_CHAR(SYSDATE, 'yyyy-mm-dd day') FROM DUAL;
+
+
+--조인 종류
+--1. Equi Join(등가조인)
+--테이블간에 필드값들이 일치하는 경우에 사용한다.      //교집합?
+--가장 많이 사용됴ㅚ는 조인 방식이다.
+
+--2. Non-Equi Join(비등가 조인)
+--테이블간의 필드 값들이 일치하지 않는 경우에 사용한다 //차지합?
+
+--3. Outer Join                                  //합집함;
+--EquiJoin의 한 종류 (Equi Join의 결과는 Outer Join의 부분집합에 해당)
+--EquiJoin을 하였을때 공통이외의 데이터 출력을 하기위해'+'연산자를 사용하는 조인
+
+--4. Self Join
+--하나의 테이블에 즉 테이블 내부 컬러들끼리 조인하는 방법
+
+
+--------------------------------------------------------------
+--실습
+--1. Equi Join(등가조인)
+-- 1) 사원번호 사원명 부서이름을 출력한다
+--  A.부서테이블 확인
+SELECT DEPTNO, DNAME, LOC FROM DEPT;
+--  B.사원테이블 확인
+SELECT EMPNO, ENAME, DEPTNO FROM EMP;
+
+SELECT ROWNUM, EMPNO, SUBSTR(ENAME, 1, 2), SAL, DEPTNO FROM EMP WHERE NOT DEPTNO LIKE '2%' ORDER BY SAL, ROWNUM;
+SELECT ROWNUM, LENGTH(EMPNO), SUBSTR(ENAME, 1, 2), SAL FROM EMP WHERE NOT DEPTNO = 10 ORDER BY SAL, ROWNUM;
+SELECT ROWNUM, LENGTH(EMPNO), INITCAP(LOWER(SUBSTR(ENAME, 1, 2))), REPLACE(SAL, '0', 'Q') FROM EMP WHERE NOT DEPTNO = 10 ORDER BY SAL, ROWNUM;
+SELECT ROWNUM, LENGTH(EMPNO), INITCAP(LOWER(SUBSTR(ENAME, 1, 2))), REPLACE(SAL, '0', 'Q') FROM EMP WHERE NOT DEPTNO = 10 ORDER BY SAL, ROWNUM;
+
+
+SELECT CUSTOMERID
+, CUSTOMERNAME
+, LENGTH(CUSTOMERNAME) AS 이름길이
+, SUBSTR(CUSTOMERNAME,6) AS 자름이름
+, REPLACE(CUSTOMERNAME, SUBSTR(CUSTOMERNAME,1,5), '*****') AS 별표채운이름 -- SUBSTR SUBSTRB
+FROM CUSTOMERS;
+
+SELECT
+    E.EMPNO
+    , E.ENAME
+    , E.DEPTNO
+    , D.DNAME
+FROM EMP E, DEPT D
+WHERE E.DEPTNO = D.DEPTNO;
+
+SELECT
+    EMPNO
+    , ENAME
+    , E.DEPTNO
+    , DNAME
+FROM EMP E, DEPT D          -- 첫번쨰가 주, 두번쨰가 조인오는친구 주에 있는 컬럼은 생략가능
+WHERE E.DEPTNO = D.DEPTNO;
+--2. Non-Equi Join(비등가 조인)
+--사원명과 사원급여의 등급을 출력한다.
+--등급테이블 확인
+SELECT * FROM SALGRADE;
+--사원테이블 확인
+SELECT * FROM EMP;
+
+SELECT
+    ENAME
+    , SAL
+    , S.GRADE
+FROM EMP E, SALGRADE S
+WHERE E.SAL BETWEEN S.LOSAL AND S.HISAL;
+
+INSERT INTO EMP(EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, DEPTNO)
+VALUES ('7001','TOM','CLERK','1000', '99/01/01', '500', '30');
+SELECT MGR FROM EMP;
+--3. Outer Join
+-- EQUI JOIN의 결과를 통해 출력되지 않은것들도 출력
+-- A. 부서테이블 확인
+SELECT DEPTNO, DNAME, LOC FROM DEPT;
+-- B. 사원테이블 확인
+SELECT COUNT(*) FROM EMP WHERE DEPTNO = '40';
+
+SELECT E.ENAME, D.DEPTNO, D.DNAME
+FROM EMP E, DEPT D
+WHERE E.DEPTNO(+) = D.DEPTNO;
+
+--4. Self Join
+-- 하나의 테이블에서 서로 연관이 있는 컬럼을 갖고 있을 때 가능
+-- 1. 사원번호와 사원이름 출력
+SELECT EMPNO, ENAME FROM EMP;
+-- 2. 사원이름과 매니저를 출력
+SELECT ENAME, MGR FROM EMP;
+-- 사원의 상사를 출력
+--SELECT E2.EMPNO, E2.ENAME || '의 상사는 ' || E2.MGR || ' : ' ||E1.ENAME || '이다.' 결과
+SELECT E1.EMPNO, E1.ENAME || '의 상사는 ' || E1.MGR || ' : ' ||E2.ENAME || '이다.' 결과
+FROM  EMP E1, EMP E2    --E1은 사원 주, E2는 상사정보
+WHERE E1.MGR = E2.EMPNO; -- E1의MGR은 상사의 사원번호
+--WHERE E1.EMPNO = E2.MGR; -- E1의MGR은 상사의 사원번호
+
+오라클 문자형 함수
+upper, lower, length, concat, lpad, rpad, ltrim, rtrim
+대문자, 소문자, 문자길이, 문자합치기, 왼&오정렬(대상문자,길이지정,빈칸채울문자), 왼&오 공백제거
+SUBSTR, REPLACE, INITCAP

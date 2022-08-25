@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mapojob.admin.dao.EmpMapper">
+
+    <delete id="deleteEmp" parameterType="int">
+        DELETE FROM emp_info
+        WHERE ENO = ${eno}
+    </delete>
+
+    <insert id="insertEmp" parameterType="EmpDto">
+        INSERT INTO emp_info
+            (NAME, GENDER_GROUP_CODE, TEAM_GROUP_CODE, POSITION_GROUP_CODE, PHONE_NO, EMAIL)
+        VALUES
+            (#{name}, #{gg_no}, #{tg_no}, #{pg_no}, #{phone_no}, #{email})
+    </insert>
+
+    <update id="modifyEmp" parameterType="EmpDto">
+        UPDATE emp_info
+        SET NAME = #{name}, GENDER_GROUP_CODE = #{gg_no}, TEAM_GROUP_CODE = #{tg_no}
+          , POSITION_GROUP_CODE = #{pg_no}, PHONE_NO = #{phone_no}, EMAIL = #{email}, UP_DATE = NOW()
+        WHERE ENO = #{eno}
+    </update>
+
+    <select id="selectAll" resultType="EmpDto">
+        SELECT ENO, NAME, GENDER_GROUP_CODE, TEAM_GROUP_CODE
+              , POSITION_GROUP_CODE, PHONE_NO, EMAIL, REG_DATE, UP_DATE
+        FROM emp_info
+        ORDER BY reg_date DESC, ENO DESC
+    </select>
+
+    <sql id="selectFromEmp">
+        SELECT ENO, NAME, GENDER_GROUP_CODE, TEAM_GROUP_CODE
+             , POSITION_GROUP_CODE, PHONE_NO, EMAIL, REG_DATE, UP_DATE
+        FROM emp_info
+    </sql>
+
+    <select id="selectEmp" parameterType="int" resultType="EmpDto">
+        <include refid="selectFromEmp"/>
+        WHERE ENO = #{ENO}
+    </select>
+
+    <select id="selectPage" parameterType="map" resultType="EmpDto">
+        <include refid="selectFromEmp"/>
+        ORDER BY REG_DATE DESC, ENO DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <sql id="searchCondition">
+        <choose>
+            <when test='option=="N"'>
+                AND NAME LIKE concat('%', #{keyword}, '%')  # %NAME%
+            </when>
+            <when test='option=="E"'>
+                AND EMAIL LIKE concat('%', #{keyword}, '%')  # %EMAIL%
+            </when>
+            <otherwise>
+                AND (NAME LIKE concat('%', #{keyword}, '%')
+                OR EMAIL LIKE concat('%', #{keyword}, '%'))
+            </otherwise>
+        </choose>
+    </sql>
+
+    <select id="searchSelectPage" parameterType="SearchCondition" resultType="EmpDto">
+        <include refid="selectFromEmp"/>
+        WHERE TRUE
+        <include refid="searchCondition"/>
+        ORDER BY REG_DATE DESC, ENO DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <select id="searchResultCnt" parameterType="SearchCondition" resultType="int">
+        SELECT count(*)
+        FROM emp_info
+        WHERE TRUE
+        <include refid="searchCondition"/>
+    </select>
+
+    <select id="genderCount" parameterType="int" resultType="int">
+        SELECT count(*)
+        FROM emp_info
+        WHERE GENDER_GROUP_CODE = #{GENDER_GROUP_CODE}
+    </select>
+
+</mapper>

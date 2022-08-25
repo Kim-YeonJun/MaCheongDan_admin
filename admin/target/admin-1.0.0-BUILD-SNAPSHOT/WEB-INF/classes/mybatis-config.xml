@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <typeAlias alias="UserDto" type="com.mapojob.admin.domain.UserDto"/>
+        <typeAlias alias="EmpDto" type="com.mapojob.admin.domain.EmpDto"/>
+        <typeAlias alias="PgDto" type="com.mapojob.admin.domain.PgDto"/>
+        <typeAlias alias="TgDto" type="com.mapojob.admin.domain.TgDto"/>
+        <typeAlias alias="GgDto" type="com.mapojob.admin.domain.GgDto"/>
+        <typeAlias alias="NoticeBoardDto" type="com.mapojob.admin.domain.NoticeBoardDto"/>
+        <typeAlias alias="SearchCondition" type="com.mapojob.admin.domain.SearchCondition"/>
+    </typeAliases>
+</configuration>
