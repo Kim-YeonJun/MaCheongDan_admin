@@ -33,7 +33,7 @@
     - Bootstrap5
 
 ● ERD
-   - (https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/ERD.PNG)
+   - ![ERD](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/ERD.PNG)
 
 ● Test Server URL
     - http://www.portfolio-kyj.shop/admin/
