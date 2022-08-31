@@ -27,18 +27,18 @@
    - Maven 2.5.1
    - MyBatis 3.5.9
 
-●  Front-end
-    - HTML5 & CSS
-    - javascript
-    - Bootstrap5
+● Front-end
+   - HTML5 & CSS
+   - javascript
+   - Bootstrap5
 
 ● ERD
    - ![ERD](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/ERD.PNG)
 
 ● Test Server URL
-    - http://www.portfolio-kyj.shop/admin/
-    id : TEST2
-    password : TEST2
+   - http://www.portfolio-kyj.shop/admin/
+   - id : TEST2
+   - password : TEST2
 
 ---
 
