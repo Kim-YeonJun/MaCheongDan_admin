@@ -77,12 +77,12 @@
  - NoticeBoardList_Page 
 ![NoticeBoardList_Page](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/NoticeBoardList_Page.png)
 
-- mLogin_Page
-![mLogin_Page](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/mLogin_Page.png)
-- mDashboard_Page
-![mDashboard_Page](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/mDashboard_Page.png)
-- mSideMenu
-![mSideMenu](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/mSideMenu.png)
+- mobile_Page
+<div style="display : flex; justify-content: space-around;">
+<img src="https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/mLogin_Page.png"  width="300" height="600"/>
+<img src="https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/mDashboard_Page.png"  width="300" height="600"/>
+<img src="https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/mSideMenu.png"  width="300" height="600"/>
+</div>
 
 ---
 
