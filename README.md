@@ -61,28 +61,28 @@
 
 ## **[ Admin Service Page ]**
  - Login_Page 
-![Login_Page](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/Login_Page.PNG)
+![Login_Page](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/Login_Page.png)
  - Dashboard_Page 
-![Dashboard_Page](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/Dashboard_Page.PNG)
+![Dashboard_Page](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/Dashboard_Page.png)
  - EmployeeInsert_Page 
-![EmployeeInsert_Page](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/EmployeeInsert_Page.PNG)
+![EmployeeInsert_Page](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/EmployeeInsert_Page.png)
  - EmployeeList_Page 
-![EmployeeList_Page](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/EmployeeList_Page.PNG)
+![EmployeeList_Page](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/EmployeeList_Page.png)
  - EmployeeList_Page_search 
-![EmployeeList_Page_search](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/EmployeeList_Page_search.PNG)
+![EmployeeList_Page_search](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/EmployeeList_Page_search.png)
  - EmployeeUpdate_Page 
-![EmployeeUpdate_Page](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/EmployeeUpdate_Page.PNG)
+![EmployeeUpdate_Page](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/EmployeeUpdate_Page.png)
  - NoticeBoardInsert_Page 
-![NoticeBoardInsert_Page](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/NoticeBoardInsert_Page.PNG)
+![NoticeBoardInsert_Page](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/NoticeBoardInsert_Page.png)
  - NoticeBoardList_Page 
-![NoticeBoardList_Page](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/NoticeBoardList_Page.PNG)
+![NoticeBoardList_Page](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/NoticeBoardList_Page.png)
 
 - mLogin_Page
-![mLogin_Page](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/mLogin_Page.PNG)
+![mLogin_Page](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/mLogin_Page.png)
 - mDashboard_Page
-![mDashboard_Page](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/mDashboard_Page.PNG)
+![mDashboard_Page](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/mDashboard_Page.png)
 - mSideMenu
-![mSideMenu](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/mSideMenu.PNG)
+![mSideMenu](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/mSideMenu.png)
 
 ---
 
