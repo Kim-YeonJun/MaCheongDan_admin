@@ -79,9 +79,9 @@
 
 - mobile_Page
 <div style="display : flex; justify-content: space-around;">
-<img src="https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/mLogin_Page.png"  width="300" height="600"/>
-<img src="https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/mDashboard_Page.png"  width="300" height="600"/>
-<img src="https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/mSideMenu.png"  width="300" height="600"/>
+<img src="https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/mLogin_Page.png"  width="200" height="400"/>
+<img src="https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/mDashboard_Page.png" width="200" height="400"/>
+<img src="https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/mSideMenu.png" width="200" height="400"/>
 </div>
 
 ---
