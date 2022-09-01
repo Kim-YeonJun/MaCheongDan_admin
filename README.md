@@ -45,9 +45,9 @@
 ---
 
 ## **[ Test Server URL ]**
-    - http://www.portfolio-kyj.shop/admin/
-    - id : TEST2
-    - password : TEST2
+● [http://www.portfolio-kyj.shop/admin/](http://www.portfolio-kyj.shop/admin/)
+● id : TEST2
+● password : TEST2
 
 ---
 
