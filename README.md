@@ -27,18 +27,27 @@
    - Maven 2.5.1
    - MyBatis 3.5.9
 
-● Front-end
-   - HTML5 & CSS
-   - javascript
-   - Bootstrap5
+●  Front-end
+    - HTML5 & CSS
+    - javascript
+    - Bootstrap5
 
-● ERD
-   - ![ERD](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/ERD.PNG)
+---
 
-● Test Server URL
-   - http://www.portfolio-kyj.shop/admin/
-   - id : TEST2
-   - password : TEST2
+## **[ COMMON_CODE ]**
+![COMMON_CODE](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/COMMON_CODE.PNG)
+
+---
+
+## **[ ERD ]**
+![ERD](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/ERD.PNG)
+
+---
+
+## **[ Test Server URL ]**
+    - http://www.portfolio-kyj.shop/admin/
+    - id : TEST2
+    - password : TEST2
 
 ---
 
@@ -47,6 +56,35 @@
  * 각 View화면 페이지 개발 (로그인, 공지사항게시판, 사원관리페이지, 대쉬보드 페이지 etc)
  * 로그인 기능 개발, 공지사항게시판 CRUD기능 개발, 사원정보 CRUD기능 개발
  * 대쉬보드 CHART 연동 구현, 사원관리페이지 검색기능 & 페이징시스템 구현
+
+---
+
+## **[ Admin Service Page ]**
+ - Login_Page 
+![Login_Page](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/Login_Page.PNG)
+ - Dashboard_Page 
+![Dashboard_Page](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/Dashboard_Page.PNG)
+ - EmployeeInsert_Page 
+![EmployeeInsert_Page](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/EmployeeInsert_Page.PNG)
+ - EmployeeList_Page 
+![EmployeeList_Page](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/EmployeeList_Page.PNG)
+ - EmployeeList_Page_search 
+![EmployeeList_Page_search](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/EmployeeList_Page_search.PNG)
+ - EmployeeUpdate_Page 
+![EmployeeUpdate_Page](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/EmployeeUpdate_Page.PNG)
+ - NoticeBoardInsert_Page 
+![NoticeBoardInsert_Page](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/NoticeBoardInsert_Page.PNG)
+ - NoticeBoardList_Page 
+![NoticeBoardList_Page](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/NoticeBoardList_Page.PNG)
+
+- mLogin_Page
+![mLogin_Page](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/mLogin_Page.PNG)
+- mDashboard_Page
+![mDashboard_Page](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/mDashboard_Page.PNG)
+- mSideMenu
+![mSideMenu](https://github.com/Kim-YeonJun/MaCheongDan_admin/blob/main/README_IMG/mSideMenu.PNG)
+
+---
 
 
 
